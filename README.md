@@ -1,7 +1,7 @@
-# automateGithub
+# automateGithub2
 Python script that automates the process of starting a gitHub project on windows using a linux shell. 
 
-### Example1: 
+### Example: 
 
 _~$ construct --private -p repoName_
 
