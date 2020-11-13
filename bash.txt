@@ -1,0 +1,55 @@
+# The following code should be added at the end of your .bashrc file (located in ~ i.e home directory) with the following alterations.
+# Note that this code is meant to run on a linux shell (hence the /mnt/c/Users... location specifiers)
+
+
+# Replace construct with name of command and "/mnt/c/Users/markm/OneDrive/Desktop/PersonalProjects" to location         
+# where private and public folders are located. Replace /mnt/c/Users/markm/PycharmProjects/untitled/automate.py in python3 to            # location of automateGithub.py                                                        
+
+For Windows:
+function construct {                                                                                                    
+cd "/mnt/c/Users/markm/OneDrive/Desktop/PersonalProjects"                                                               
+if [ $# -eq 3 ]; then                                                                                                     
+  if [ "$1" == "--private" ]; then                                                                                          
+  cd "private"                                                                                                            
+  # mkdir "$3"                                                                                                            
+  # cd "$3"                                                                                                               
+  # ls                                                                                                                    
+  echo "Completed private"                                                                                                
+  python3 /mnt/c/Users/markm/PycharmProjects/untitled/automate.py $1 $2 $3                                              
+  else                                                                                                                      
+  cd "public"                                                                                                             
+  # mkdir "$3"                                                                                                            
+  # cd "$3"                                                                                                               
+  python3 /mnt/c/Users/markm/PycharmProjects/untitled/automate.py $1 $2 $3                                                
+  echo "Completed public"                                                                                               
+fi                                                                                                                    
+else                                                                                                                      
+cd "public"                                                                                                             
+mkdir "$1"                                                                                                              
+cd "$1"                                                                                                                 
+python3 /mnt/c/Users/markm/PycharmProjects/untitled/automate.py $1                                                      
+echo "Completed public"                                                                                               
+fi                                                                                                                      
+}
+
+For Linux:
+function construct {
+wget https://chromedriver.storage.googleapis.com/2.35/chromedriver_linux64.zip
+unzip chromedriver_linux64.zip
+sudo mv chromedriver /usr/bin/chromedriver
+sudo rm chromedriver_linux64.zip
+sudo chown root:root /usr/bin/chromedriver
+sudo chmod +x /usr/bin/chromedriver
+cd "/home/mark/Projects"
+if [ $# -eq 3 ]; then
+  if [ "$1" == "--private" ]; then
+    cd "private"
+    python3 ./automateGithub/automateGithub.py $1 $2 $3
+    echo "Completed private"
+  elif [ "$1" == "--public" ]; then
+    cd "public"
+    python3 ../private/automateGithub/automateGithub.py $1 $2 $3
+    echo "Completed public"
+  fi
+fi
+}
