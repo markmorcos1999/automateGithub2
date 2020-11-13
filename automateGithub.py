@@ -146,14 +146,3 @@ os.system("git add .")
 os.system("git commit -m \"Initial commit\"")
 os.system("git push")
 print("after os")
-
-#     # crate name.cpp
-#     os.system("touch {0}.{1}".format(repo_name, "cpp"))
-#     subprocess.call("\"/mnt/c/Windows/System32/cmd.exe\" /C 'start C://Users//markm//OneDrive//Desktop//\
-# PersonalProjects//{0}//{1}//{2}.{3}'".format(sys.argv[1][2:], repo_name, repo_name, "cpp")
-#                     , shell=True)
-#     os.system("touch {0}.{1}".format(repo_name, "h"))
-#     subprocess.call("\"/mnt/c/Windows/System32/cmd.exe\" /C 'start C://Users//markm//OneDrive//Desktop//\
-# PersonalProjects//{0}//{1}//{2}.{3}'".format(sys.argv[1][2:], repo_name, repo_name, "h")
-#                     , shell=True)
-#     # open visual studio code with .cpp
